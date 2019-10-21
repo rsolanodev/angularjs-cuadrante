@@ -1,0 +1,21 @@
+.box {
+    font-size: 1.75rem;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.box:hover {
+    font-size: 2rem;
+}
+
+.row {
+    margin: 1.75rem 0;
+}
+
+a:hover {
+    text-decoration: none;
+}

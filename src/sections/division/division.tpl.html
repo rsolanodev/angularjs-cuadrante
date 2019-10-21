@@ -1,0 +1,68 @@
+<h2>Generar tabla de divisón</h2>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card w-100">
+            <div class="card-body">
+                <form name="formDivision" novalidate>
+                    <div class="form-group">
+                        <label for="altura">Altura</label>
+                        <input type="number" class="form-control" id="altura" placeholder="Introduce la altura"
+                               ng-class="{ 'is-invalid' : formDivision.altura.$invalid && !formDivision.altura.$pristine }"
+                               ng-model="altura" name="altura" ng-min="2" ng-max="20" ng-pattern="/^[0-9]+$/" required>
+                        <div class="invalid-feedback"
+                             ng-if="formDivision.altura.$error.pattern || formDivision.altura.$error.required">
+                            Introduce un número entero.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formDivision.altura.$error.min">
+                            El mínimo es 2.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formDivision.altura.$error.max">
+                            El máximo es 20.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="anchura">Anchura</label>
+                        <input type="number" class="form-control" id="anchura" placeholder="Introduce la anchura"
+                               ng-class="{ 'is-invalid' : formDivision.anchura.$invalid && !formDivision.anchura.$pristine }"
+                               ng-model="anchura" name="anchura" ng-min="2" ng-max="20" ng-pattern="/^[0-9]+$/"
+                               required>
+                        <div class="invalid-feedback"
+                             ng-if="formDivision.anchura.$error.pattern || formDivision.altura.$error.required">
+                            Introduce un número entero.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formDivision.anchura.$error.min">
+                            El mínimo es 2.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formDivision.anchura.$error.max">
+                            El máximo es 20.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" ng-disabled="formDivision.$invalid"
+                            ng-click="submit()">Generar tabla
+                    </button>
+                    <button type="reset" class="btn btn-light w-100 mt-2" ng-click="clean()">Limpiar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 overflow-auto">
+        <table class="table table-bordered" ng-if="rows.length > 0">
+            <tr>
+                <td>#</td>
+                <td ng-repeat="col in frow track by $index">
+                    {{ col | number:2 }}
+                </td>
+            </tr>
+            <tr ng-repeat="row in rows track by $index">
+                <td ng-repeat="col in row track by $index">
+                    {{ col | number:2 }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

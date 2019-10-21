@@ -1,0 +1,62 @@
+<h2>Generar tabla de restar</h2>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card w-100">
+            <div class="card-body">
+                <form name="formResta" novalidate>
+                    <div class="form-group">
+                        <label for="altura">Altura</label>
+                        <input type="number" class="form-control" id="altura" placeholder="Introduce la altura"
+                               ng-class="{ 'is-invalid' : formResta.altura.$invalid && !formResta.altura.$pristine }"
+                               ng-model="altura" name="altura" ng-min="2" ng-max="20" ng-pattern="/^[0-9]+$/" required>
+                        <div class="invalid-feedback"
+                             ng-if="formResta.altura.$error.pattern || formResta.altura.$error.required">
+                            Introduce un número entero.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formResta.altura.$error.min">
+                            El mínimo es 2.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formResta.altura.$error.max">
+                            El máximo es 20.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="anchura">Anchura</label>
+                        <input type="number" class="form-control" id="anchura" placeholder="Introduce la anchura"
+                               ng-class="{ 'is-invalid' : formResta.anchura.$invalid && !formResta.anchura.$pristine }"
+                               ng-model="anchura" name="anchura" ng-min="2" ng-max="20" ng-pattern="/^[0-9]+$/"
+                               required>
+                        <div class="invalid-feedback"
+                             ng-if="formResta.anchura.$error.pattern || formResta.altura.$error.required">
+                            Introduce un número entero.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formResta.anchura.$error.min">
+                            El mínimo es 2.
+                        </div>
+                        <div class="invalid-feedback"
+                             ng-if="formResta.anchura.$error.max">
+                            El máximo es 20.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" ng-disabled="formResta.$invalid"
+                            ng-click="submit()">Generar tabla
+                    </button>
+                    <button type="reset" class="btn btn-light w-100 mt-2" ng-click="clean()">Limpiar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 overflow-auto">
+        <table class="table table-bordered" ng-if="rows.length > 0">
+            <tr ng-repeat="row in rows track by $index">
+                <td ng-repeat="col in row">
+                    {{ col == 0 && row[0] === 0 ? '#' : col }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

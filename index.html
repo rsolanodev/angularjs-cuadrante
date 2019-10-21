@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <base href="/DAW/AngularCuadrante/">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Project</title>
+
+    <!-- Style Files -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="stylesheet" href="src/sections/home/home.css">
+
+    <!-- AngularJS Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/app.config.js"></script>
+    <script src="src/app.routes.js"></script>
+
+    <!-- Services -->
+    <script src="src/services/index.js"></script>
+
+    <!-- Sections -->
+    <script src="src/sections/home/home.ctrl.js"></script>
+    <script src="src/sections/suma/suma.ctrl.js"></script>
+    <script src="src/sections/resta/resta.ctrl.js"></script>
+    <script src="src/sections/multi/multi.ctrl.js"></script>
+    <script src="src/sections/division/division.ctrl.js"></script>
+
+    <!-- Components -->
+    <script src="src/components/navbar/navbar.ctrl.js"></script>
+    <script src="src/components/navbar/navbar.comp.js"></script>
+    <script src="src/components/footer/footer.ctrl.js"></script>
+    <script src="src/components/footer/footer.comp.js"></script>
+
+</head>
+<body ng-app="app">
+<div class="container main-content my-5">
+    <ng-navbar></ng-navbar>
+    <div class="mt-4 mb-5">
+        <ng-view></ng-view>
+    </div>
+    <ng-footer></ng-footer>
+</div>
+</body>
+</html>
